@@ -1,0 +1,21 @@
+{
+    "huskylensV2": "",
+    "huskylensV2.I2CInit": "初始化I2C直到成功",
+    "huskylensV2.controlMotor": "控制电机模块运行",
+    "huskylensV2.controlMotorStop": "控制电机模块停止运行",
+    "huskylensV2.controlLED": "控制左、右LED开关",
+    "huskylensV2.readLineSensorState": "获取巡线传感器的状态 将小车放在白纸上返回为0，将小车放在空中/黑纸上返回为1",
+    "huskylensV2.readLineSensorData": "获取巡线传感器的ADC数据",
+    "huskylensV2.readUltrasonic": "获取超声波传感器的数据(CM)",
+    "huskylensV2.readVersion": "获取版本号",
+    "huskylensV2.rgb": "设置三种原色：红、绿、蓝",
+    "huskylensV2.ledRange": "RGB灯，从开始的位置号到结束的位置号",
+    "huskylensV2.setIndexColor": "设置指定的LED灯的颜色",
+    "huskylensV2.showColor": "设置所有RGB灯的颜色",
+    "huskylensV2.setBrightness": "设置RGB灯的亮度",
+    "huskylensV2.ledBlank": "关闭所有RGB灯",
+    "huskylensV2.ledRainbow": "RGB灯显示彩虹色",
+    "huskylensV2.intersectionDetecting":"返回值：1是十字路口，2是左转及右转路口（T字路口），3是左转及直行路口，4是右转及直行路口",
+    "huskylensV2.readRealTimeSpeed":"返回值单位：厘米每秒（cm/s）"
+
+}

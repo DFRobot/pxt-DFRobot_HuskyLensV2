@@ -1,0 +1,33 @@
+{
+    "name": "huskylensV2",
+    "version": "1.0.0",
+    "description": "",
+    "dependencies": {
+        "core": "*",
+        "radio": "*",
+        "microphone": "*"
+    },
+    "files": [
+        "main.blocks",
+        "main.ts",
+        "README.md",
+        "_locales/zh-cn/huskylensV2-strings.json",
+        "_locales/zh-cn/huskylensV2-jsdoc-strings.json",
+        "_locales/zh-tw/huskylensV2-strings.json",
+        "_locales/zh-tw/huskylensV2-jsdoc-strings.json",
+        "_locales/en/huskylensV2-strings.json",
+        "_locales/en/huskylensV2-jsdoc-strings.json",
+        "huskylensV2.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "targetVersions": {
+        "target": "8.0.18",
+        "targetId": "microbit"
+    },
+    "supportedTargets": [
+        "microbit"
+    ],
+    "preferredEditor": "tsprj"
+}
