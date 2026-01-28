@@ -177,7 +177,109 @@ namespace huskylensV2 {
 
     
     // ==================== Algorithm selection enum ====================
-    export enum Algorithm {
+    export enum AlgorithmLearn_setNameOfID {
+        //% blockHidden=true
+        ALGORITHM_ANY = 0,                      // 0
+        //% block="Face recognition"
+        ALGORITHM_FACE_RECOGNITION = 1,         // 1
+        //% block="Object tracking"
+        ALGORITHM_OBJECT_TRACKING = 3,          // 3
+        //% block="Color recognition"
+        ALGORITHM_COLOR_RECOGNITION = 4,        // 4
+        //% block="Self-learning classification"
+        ALGORITHM_SELF_LEARNING_CLASSIFICATION = 6, // 6
+        //% block="Hand recognition"
+        ALGORITHM_HAND_RECOGNITION = 8,        // 8
+        //% block="Pose recognition"
+        ALGORITHM_POSE_RECOGNITION = 9,        // 9
+        //% block="License plate recognition"
+        ALGORITHM_LICENSE_RECOGNITION = 10,      // 10
+        //% block="OCR recognition"
+        ALGORITHM_OCR_RECOGNITION = 11,          // 11
+        //% block="Gaze recognition"
+        ALGORITHM_GAZE_RECOGNITION = 14,            // 14
+        //% block="Face Orientation"
+        ALGORITHM_FACE_ORIENTATION = 15,             // 15
+         //% block="Tag recognition"
+        ALGORITHM_TAG_RECOGNITION = 16,              // 16
+        //% block="Barcode recognition"
+        ALGORITHM_BARCODE_RECOGNITION = 17,        // 17
+        //% block="QR code recognition"
+        ALGORITHM_QRCODE_RECOGNITION = 18,       // 18
+    }
+
+        export enum Algorithm_learnObjectAtCenter {
+        //% blockHidden=true
+        ALGORITHM_ANY = 0,                      // 0
+        //% block="Face recognition"
+        ALGORITHM_FACE_RECOGNITION = 1,         // 1
+        //% block="Object recognition"
+        ALGORITHM_OBJECT_RECOGNITION = 2,       // 2
+        //% block="Color recognition"
+        ALGORITHM_COLOR_RECOGNITION = 4,        // 4
+        //% block="Object classification"
+        ALGORITHM_OBJECT_CLASSIFICATION = 5,   // 5
+        //% block="Self-learning classification"
+        ALGORITHM_SELF_LEARNING_CLASSIFICATION = 6, // 6
+        //% block="Instance Segmentation"
+        ALGORITHM_SEGMENT = 7,                 // 7
+        //% block="Hand recognition"
+        ALGORITHM_HAND_RECOGNITION = 8,        // 8
+        //% block="Pose recognition"
+        ALGORITHM_POSE_RECOGNITION = 9,        // 9
+        //% block="License plate recognition"
+        ALGORITHM_LICENSE_RECOGNITION = 10,      // 10
+        //% block="OCR recognition"
+        ALGORITHM_OCR_RECOGNITION = 11,          // 11
+
+        //% block="Gaze recognition"
+        ALGORITHM_GAZE_RECOGNITION = 14,            // 14
+        //% block="Face Orientation"
+        ALGORITHM_FACE_ORIENTATION = 15,             // 15
+         //% block="Tag recognition"
+        ALGORITHM_TAG_RECOGNITION = 16,              // 16
+        //% block="Barcode recognition"
+        ALGORITHM_BARCODE_RECOGNITION = 17,        // 17
+        //% block="QR code recognition"
+        ALGORITHM_QRCODE_RECOGNITION = 18,       // 18
+    }
+
+     export enum Algorithm_learnObjectInBox {
+        //% blockHidden=true
+        ALGORITHM_ANY = 0,                      // 0
+        //% block="Face recognition"
+        ALGORITHM_FACE_RECOGNITION = 1,         // 1
+        //% block="Object recognition"
+        ALGORITHM_OBJECT_RECOGNITION = 2,       // 2
+        //% block="Object tracking"
+        ALGORITHM_OBJECT_TRACKING = 3,          // 3
+        //% block="Color recognition"
+        ALGORITHM_COLOR_RECOGNITION = 4,        // 4
+        //% block="Instance Segmentation"
+        ALGORITHM_SEGMENT = 7,                 // 7
+        //% block="Hand recognition"
+        ALGORITHM_HAND_RECOGNITION = 8,        // 8
+        //% block="Pose recognition"
+        ALGORITHM_POSE_RECOGNITION = 9,        // 9
+        //% block="License plate recognition"
+        ALGORITHM_LICENSE_RECOGNITION = 10,      // 10
+        //% block="OCR recognition"
+        ALGORITHM_OCR_RECOGNITION = 11,          // 11
+
+
+        //% block="Gaze recognition"
+        ALGORITHM_GAZE_RECOGNITION = 14,            // 14
+        //% block="Face Orientation"
+        ALGORITHM_FACE_ORIENTATION = 15,             // 15
+         //% block="Tag recognition"
+        ALGORITHM_TAG_RECOGNITION = 16,              // 16
+        //% block="Barcode recognition"
+        ALGORITHM_BARCODE_RECOGNITION = 17,        // 17
+        //% block="QR code recognition"
+        ALGORITHM_QRCODE_RECOGNITION = 18,       // 18
+    }
+
+        export enum Algorithm {
         //% blockHidden=true
         ALGORITHM_ANY = 0,                      // 0
         //% block="Face recognition"
@@ -211,7 +313,7 @@ namespace huskylensV2 {
         ALGORITHM_GAZE_RECOGNITION = 14,            // 14
         //% block="Face Orientation"
         ALGORITHM_FACE_ORIENTATION = 15,             // 15
-         //% block="Tag recognition"
+            //% block="Tag recognition"
         ALGORITHM_TAG_RECOGNITION = 16,              // 16
         //% block="Barcode recognition"
         ALGORITHM_BARCODE_RECOGNITION = 17,        // 17

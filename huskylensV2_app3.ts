@@ -90,23 +90,24 @@ namespace huskylensV2 {
         ID = 0,
         //% block="Name"
         Name,
+        //% block="Roll Angle"
+        Roll,
         //% block="Yaw Angle"
         Yaw,
         //% block="Pitch Angle"
         Pitch,
-        //% block="Roll Angle"
-        Roll,
+
     }
     // Face Orientation Detection Properties
     export enum FaceOrientationPropertyID {
         //% block="Name"
         Name = 1,
+        //% block="Roll Angle"
+        Roll,
         //% block="Yaw Angle"
         Yaw,
         //% block="Pitch Angle"
         Pitch,
-        //% block="Roll Angle"
-        Roll,
     }
     // ================================= Face Orientation Detection Property Get Function ===========================================
 
@@ -541,24 +542,23 @@ namespace huskylensV2 {
     //% subcategory="Self-training"
     //% num.min=128 num.max=255 num.defl=128
     //% id.min=1 id.max=100 id.defl=1
-    //% alg.defl=BasePropertyID.id
-    export function WithID(num: number, id: number, alg: BasePropertyID): any {
+    //% alg.defl=BaseProperty.Name
+    export function WithID(num: number, id: number, alg: BaseProperty): any {
         const res = getCachedResultByIDInternal(num, id);
         const result = res as Result;
         if (!result) {
-            if (alg === BasePropertyID.Name ) {
+            if (alg === BaseProperty.Name ) {
                 return "";
             }
             return 0;
         }
         
         switch (alg) {
-            case BasePropertyID.ID: return result.ID || 0;
-            case BasePropertyID.Name: return result.name|| "";
-            case BasePropertyID.XCenter:return result.xCenter|| 0;
-            case BasePropertyID.YCenter:return result.yCenter|| 0;
-            case BasePropertyID.Width:return result.width|| 0;
-            case BasePropertyID.Height:return result.height|| 0;
+            case BaseProperty.Name: return result.name|| "";
+            case BaseProperty.XCenter:return result.xCenter|| 0;
+            case BaseProperty.YCenter:return result.yCenter|| 0;
+            case BaseProperty.Width:return result.width|| 0;
+            case BaseProperty.Height:return result.height|| 0;
             default:return 0;
         }
     }
