@@ -1157,7 +1157,7 @@ export function getCachedCenterResultInternal(algo: number): ResultVariant | nul
         red = Math.max(0, Math.min(255, red));
         green = Math.max(0, Math.min(255, green));
         blue = Math.max(0, Math.min(255, blue));
-        return ( blue<< 16) + (green << 8) + red;
+        return ( red<< 16) + (green << 8) + blue;
     }
 
     //************************************* Learning /Forgetting   ********************************* */
