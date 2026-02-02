@@ -1,7 +1,17 @@
-/**
- * Custom graphic block
- */
-//% weight=100 color=#0fbc11 icon="\uf067" block="HuskylensV2"
+/** 
+ * @file pxt-DFRobot_HuskyLensV2/huskylensV2_protocol.ts
+ * @brief DFRobot's huskylens 2 makecode library.
+ * @n [Get the module here](https://github.com/DFRobot/pxt-DFRobot_HuskyLensV2)
+ * @n HUSKYLENS 2 is an easy-to-play AI vision sensor that provides a variety of AI vision functions, such as object detection, pose recognition, and instance segmentation.
+ * 
+ * @copyright    [DFRobot](http://www.dfrobot.com), 2026
+ * @copyright    MIT Lesser General Public License
+ * 
+ * @author [email](rong.li@dfrobot.com)
+ * @date  2026-2-2
+*/
+
+//% weight=100 color=#0fbc11 icon="\uf083" block="HuskylensV2"
 //% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Color Recognition","Object Classification","Self-learning Classification","Instance Segmentation","Hand Recognition","Pose Recognition","License Plate Recognition","Optical Char Recognition","Line Tracking","Face Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition"]'
 namespace huskylensV2 {
     // MakeCode global types are automatically injected, these declarations are only to suppress IDE warnings

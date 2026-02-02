@@ -1,7 +1,17 @@
-/**
- * Custom graphic block
- */
-//% weight=100 color=#0fbc11 icon="\uf067" block="HuskylensV2"
+/** 
+ * @file pxt-DFRobot_HuskyLensV2/huskylensV2_app2.ts
+ * @brief DFRobot's huskylens 2 makecode library.
+ * @n [Get the module here](https://github.com/DFRobot/pxt-DFRobot_HuskyLensV2)
+ * @n HUSKYLENS 2 is an easy-to-play AI vision sensor that provides a variety of AI vision functions, such as object detection, pose recognition, and instance segmentation.
+ * 
+ * @copyright    [DFRobot](http://www.dfrobot.com), 2026
+ * @copyright    MIT Lesser General Public License
+ * 
+ * @author [email](rong.li@dfrobot.com)
+ * @date  2026-2-2
+*/
+
+//% weight=100 color=#0fbc11 icon="\uf083" block="HuskylensV2"
 //% groups='["Communication","Algorithm Switch","Face Recognition","Object Recognition","Object Tracking","Color Recognition","Object Classification","Self-learning Classification","Instance Segmentation","Hand Recognition","Pose Recognition","License Plate Recognition","Optical Char Recognition","Line Tracking","Face Emotion Recognition","Tag Recognition","QR Code Recognition","Barcode Recognition"]'
 namespace huskylensV2 {
 
@@ -37,7 +47,7 @@ namespace huskylensV2 {
         return availableInternal(Algorithm.ALGORITHM_LICENSE_RECOGNITION);
     }
 
-    /** 靠近中心的车牌属性 */
+    /** The license plate attributes close to the center */
     //% block="Plate near center %alg"
     //% weight=127
     //% subcategory="License Plate Recognition"
@@ -46,7 +56,7 @@ namespace huskylensV2 {
         return getPlatePropertyValue(r, alg);
     }
 
-    /** 检测到的车牌总数 */
+    /** Total number of detected license plates */
     //% block="Number of detected plates"
     //% weight=126
     //% subcategory="License Plate Recognition"
@@ -54,7 +64,7 @@ namespace huskylensV2 {
         return getCachedResultNumInternal(Algorithm.ALGORITHM_LICENSE_RECOGNITION);
     }
 
-    /** 第N个车牌的属性 */
+    /** The attributes of the Nth license plate */
     //% block="Plate %index %alg"
     //% weight=125
     //% index.min=1 index.defl=1
@@ -64,7 +74,7 @@ namespace huskylensV2 {
         return getPlatePropertyValue(r, alg);
     }
 
-    /** 已学习的车牌ID总数 */
+    /** Total number of learned license plate IDs */
     //% block="Number of learned plate IDs"
     //% weight=124
     //% subcategory="License Plate Recognition"
@@ -72,7 +82,7 @@ namespace huskylensV2 {
         return getCachedResultLearnedNumInternal(Algorithm.ALGORITHM_LICENSE_RECOGNITION);
     }
 
-    /** 指定ID的车牌是否存在 */
+    /** Check if a specific ID's license plate exists */
     //% block="Does plate ID %index exist?"
     //% weight=123
     //% index.min=1 index.defl=1
@@ -82,7 +92,7 @@ namespace huskylensV2 {
         return r != null;
     }
 
-    /** 指定ID的车牌数量 */
+    /** The number of license plates with the specified ID */
     //% block="Number of plates with ID %index"
     //% weight=122
     //% index.min=1 index.defl=1
@@ -91,7 +101,7 @@ namespace huskylensV2 {
         return getCachedResultNumByIDInternal(Algorithm.ALGORITHM_LICENSE_RECOGNITION, index);
     }
 
-    /** 指定ID的车牌属性 */
+    /** The license plate attribute with the specified ID */
     //% block="Plate ID %index %alg"
     //% weight=121
     //% index.min=1 index.defl=1
@@ -101,7 +111,7 @@ namespace huskylensV2 {
         return getPlatePropertyValue(r, alg);
     }
 
-    /** 指定ID第N个车牌的属性 */
+    /** The attribute of the Nth license plate with the specified ID */
     //% block="Plate ID %id No.%n %alg"
     //% weight=120
     //% id.min=1 id.defl=1
@@ -130,7 +140,7 @@ namespace huskylensV2 {
     }
 
 
-    /** 获取一次文字识别结果并缓存 */
+    /** Obtain a text recognition result and cache it */
     //% block="Get Optical Char Recognition result"
     //% weight=119
     //% subcategory="Optical Char Recognition"
@@ -138,7 +148,7 @@ namespace huskylensV2 {
         getResultInternal(Algorithm.ALGORITHM_OCR_RECOGNITION);
     }
 
-    /** 是否检测到文字区域 */
+    /** Whether a text area has been detected */
     //% block="Whether text region detected"
     //% weight=118
     //% subcategory="Optical Char Recognition"
@@ -146,7 +156,7 @@ namespace huskylensV2 {
         return availableInternal(Algorithm.ALGORITHM_OCR_RECOGNITION);
     }
 
-    /** 靠近中心的文字区域属性 */
+    /** Attributes of the text area close to the center */
     //% block="Text region near center %alg"
     //% weight=117
     //% subcategory="Optical Char Recognition"
@@ -155,7 +165,7 @@ namespace huskylensV2 {
         return getTextPropertyValue(r, alg);
     }
 
-    /** 已学习的文字区域ID总数 */
+    /** Total number of learned text areas */
     //% block="Number of learned text region IDs"
     //% weight=114
     //% subcategory="Optical Char Recognition"
@@ -163,7 +173,7 @@ namespace huskylensV2 {
         return getCachedResultLearnedNumInternal(Algorithm.ALGORITHM_OCR_RECOGNITION);
     }
 
-    /** 指定ID的文字区域是否存在 */
+    /** Check if the text area with the specified ID exists */
     //% block="Does text region ID %index exist?"
     //% weight=113
     //% index.min=1 index.defl=1
@@ -173,7 +183,7 @@ namespace huskylensV2 {
         return r != null;
     }
 
-    /** 指定ID的文字区域属性 */
+    /** Text area attribute with specified ID */
     //% block="Text region ID %index %alg"
     //% weight=111
     //% index.min=1 index.defl=1
@@ -656,7 +666,7 @@ namespace huskylensV2 {
 
 
 
-    /** HUSKYLENS 2切换算法ID直到成功 */
+    /** HUSKYLENS 2 switching algorithm ID until successful */
     //% blockHidden=true
     //% block="HUSKYLENS 2 switch algorithm ID %algorithmId until success"
     //% weight=64
@@ -667,7 +677,7 @@ namespace huskylensV2 {
         switchAlgorithmInternal(algoId);
     }
 
-    /** 算法ID请求一次数据存入结果 */
+    /** Request for algorithm ID to store data once */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId request data and store result"
     //% weight=63
@@ -678,7 +688,7 @@ namespace huskylensV2 {
         getResultInternal(algoId);
     }
 
-    /** 算法ID检测到目标 */
+    /** Algorithm ID detects the target */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId target detected?"
     //% weight=62
@@ -689,7 +699,7 @@ namespace huskylensV2 {
         return availableInternal(algoId);
     }
 
-    /** 算法ID靠近中心的目标属性 */
+    /** Target attribute with algorithm ID close to the center */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId target near center %alg1"
     //% weight=61
@@ -701,7 +711,7 @@ namespace huskylensV2 {
         return getCustomModelPropertyValueID(r, alg1);
     }
 
-    /** 算法ID检测到的目标总数 */
+    /** The total number of targets detected by the algorithm ID */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of detected targets"
     //% weight=60
@@ -712,7 +722,7 @@ namespace huskylensV2 {
         return getCachedResultNumInternal(algoId);
     }
 
-    /** 算法ID第num个目标的属性 */
+    /** The attribute of the num-th target of the algorithm ID */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId target %num %alg1"
     //% weight=59
@@ -725,7 +735,7 @@ namespace huskylensV2 {
         return getCustomModelPropertyValueID(r, alg1);
     }
 
-    /** 算法ID已学习的目标ID总数 */
+    /** The total number of target IDs that the algorithm has learned */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of learned target IDs"
     //% weight=58
@@ -736,7 +746,7 @@ namespace huskylensV2 {
         return getCachedResultLearnedNumInternal(algoId);
     }
 
-    /** 算法ID ID的目标存在 */
+    /** The objective of Algorithm ID exists. */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId target ID %targetId exists?"
     //% weight=57
@@ -749,7 +759,7 @@ namespace huskylensV2 {
         return r != null;
     }
 
-    /** 算法ID ID的目标总数 */
+    /** The total target number of Algorithm ID ID */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId number of targets with ID %targetId"
     //% weight=56
@@ -761,7 +771,7 @@ namespace huskylensV2 {
         return getCachedResultNumByIDInternal(algoId, targetId);
     }
 
-    /** 算法ID ID的目标属性 */
+    /** The target attribute of Algorithm ID ID */
     //% blockHidden=true
     //% block="Algorithm ID %algorithmId target ID %targetId %alg2"
     //% weight=55
@@ -774,7 +784,7 @@ namespace huskylensV2 {
         return getCustomModelPropertyValue(r, alg2);
     }
 
-    /** 算法ID ID的第num个目标的属性 */
+    /** The attribute of the num-th target of algorithm ID ID */
     //% blockHidden=true
     //% block="Algorithm %algorithmId ID%targetId No.%num %alg2"
     //% inlineInputMode=inline
