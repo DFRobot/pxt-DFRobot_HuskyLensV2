@@ -1,31 +1,31 @@
-# HuskyLensV2
+# HuskyLens 2
 
-[HuskyLens V2 is an easy-to-use and versatile AI vision sensor. Equipped with a dedicated AI chip offering 6 TOPS computing power, it comes preloaded with over 20 ready-to-use AI models, including face recognition, object detection, object classification, pose recognition, instance segmentation, and more. Users can also deploy custom-trained models to teach HuskyLens V2 to recognize virtually any target object. It delivers a highly capable visual solution for diverse applications such as smart robotics, industrial automation, education, and scientific research.](https://www.dfrobot.com/product-2995.html)
+[HUSKYLENS 2 is an easy-to-play AI vision sensor that provides a variety of AI vision functions, such as object detection, pose recognition, and instance segmentation.](https://www.dfrobot.com/product-2995.html)
 ## Basic usage
 
 ## Example
-HuskyLens V2 offers a very detailed tutorial on using MakeCode.(https://wiki.dfrobot.com/Tutorial%20for%20HUSKYLENS%202%20and%20micro:bit%20Graphical%20Programming(MakeCode))
+HuskyLens 2 offers a very detailed tutorial on using MakeCode.(https://wiki.dfrobot.com/Tutorial%20for%20HUSKYLENS%202%20and%20micro:bit%20Graphical%20Programming(MakeCode))
 
-* HuskyLens V2 Init I2C and select pattern.
+* HuskyLens 2 Init I2C and select pattern.
 
 ```blocks
-    huskylensV2.I2CInit()
-    huskylensV2.switchAlgorithm(huskylensV2.Algorithm.ALGORITHM_FACE_RECOGNITION)
+    huskylens2.I2CInit()
+    huskylens2.switchAlgorithm(huskylens2.Algorithm.AlgorithmFaceRecognition)
 
 ```
 
-* HuskyLens V2 collects data for facial recognition and outputs it.
+* HuskyLens 2 collects data for facial recognition and outputs it.
 
 ```blocks
     basic.forever(function () {
-        huskylensV2.getResultFaceRecogtion()
-        if (huskylensV2.availableFaceRecogtion()) {
-            serial.writeLine("ID:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.ID))
-            serial.writeLine("NAME:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.Name))
-            serial.writeLine("X:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.XCenter))
-            serial.writeLine("Y:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.YCenter))
-            serial.writeLine("W:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.Width))
-            serial.writeLine("H:" + huskylensV2.getCachedCenterResult(huskylensV2.BasePropertyID.Height))
+        huskylens2.getResultFaceRecogtion()
+        if (huskylens2.availableFaceRecogtion()) {
+            serial.writeLine("id:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.Id))
+            serial.writeLine("NAME:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.Name))
+            serial.writeLine("X:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.XCenter))
+            serial.writeLine("Y:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.YCenter))
+            serial.writeLine("W:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.Width))
+            serial.writeLine("H:" + huskylens2.cachedCenterResult(huskylens2.BasePropertyId.Height))
             serial.writeLine("----")
         }
     })
