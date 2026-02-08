@@ -1,6 +1,6 @@
 {
     "name": "huskylens2",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "description": "HUSKYLENS 2 is an easy-to-play AI vision sensor that provides a variety of AI vision functions, such as object detection, pose recognition, and instance segmentation.",
     "license": "MIT",
     "dependencies": {
@@ -13,7 +13,6 @@
         "_locales/zh-tw/huskylens2-strings.json",
         "_locales/zh-tw/huskylens2-jsdoc-strings.json",
         "_locales/en/huskylens2-strings.json",
-        "_locales/en/huskylens2-jsdoc-strings.json",
         "huskylens2_protocol.ts",
         "huskylens2_app1.ts",
         "huskylens2_app2.ts",
