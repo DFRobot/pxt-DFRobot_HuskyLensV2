@@ -429,7 +429,6 @@ namespace huskylens2 {
      * Internal function: get a property value from a cached result.
      * @param result The cached result to read from.
      * @param property The property identifier.
-     * @returns The requested property value; returns 0 (or an empty string for `Name`) when unavailable.
      */
     //% blockHidden=true
     export function getBasePropertyValueInternal(result: ResultVariant, property: number): any {

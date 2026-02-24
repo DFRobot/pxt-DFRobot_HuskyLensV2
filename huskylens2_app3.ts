@@ -470,7 +470,6 @@ namespace huskylens2 {
     /**
      * Check if a target is detected by the specified model Id.
      * @param num Model Id (range: 128-255, default: 128)
-     * @returns True if a target is detected, false otherwise.
      */
     //% block="model Id%num target detected?"
     //% weight=117
@@ -484,7 +483,6 @@ namespace huskylens2 {
      * Get the property of the target closest to the center for the specified model Id.
      * @param num Model Id (range: 128-255, default: 128)
      * @param property Property to retrieve (e.g., Id, Name, XCenter, etc.)
-     * @returns The requested property value.
      */
     //% block="model Id%num target closest to center%property"
     //% weight=116
@@ -512,7 +510,6 @@ namespace huskylens2 {
     /**
      * Get the total number of detected targets for the specified model Id.
      * @param num Model Id (range: 128-255, default: 128)
-     * @returns Total number of detected targets.
      */
     //% block="model Id%num total number of detected targets"
     //% weight=115
@@ -525,7 +522,6 @@ namespace huskylens2 {
     /**
      * Get the total number of learned target Ids for the specified model Id.
      * @param num Model Id (range: 128-255, default: 128)
-     * @returns Total number of learned target Ids.
      */
     //% block="model Id%num total number of learned target Ids"
     //% weight=114
@@ -540,7 +536,6 @@ namespace huskylens2 {
      * @param num Model Id (range: 128-255, default: 128)
      * @param index The target index (1-based, range: 1-6, default: 1).
      * @param property Property to retrieve (e.g., Id, Name, XCenter, etc.)
-     * @returns The requested property value.
      */
     //% block="model Id %num No. %index target %property"
     //% weight=113
@@ -574,7 +569,6 @@ namespace huskylens2 {
      * Check if a target with the specified Id exists for the given model Id.
      * @param num Model Id (range: 128-255, default: 128)
      * @param Id Target Id (range: 1-100, default: 1)
-     * @returns True if the target exists, false otherwise.
      */
     //% block="model Id%num target Id%Id exists?"
     //% weight=112
@@ -589,7 +583,6 @@ namespace huskylens2 {
      * Get the total number of targets with the specified Id for the given model Id.
      * @param num Model Id (range: 128-255, default: 128)
      * @param Id Target Id (range: 1-100, default: 1)
-     * @returns Total number of targets with the specified Id.
      */
     //% block="model Id%num total number of targets with Id%Id"
     //% weight=111
@@ -605,7 +598,6 @@ namespace huskylens2 {
      * @param num Model Id (range: 128-255, default: 128)
      * @param Id Target Id (range: 1-100, default: 1)
      * @param property Property to retrieve (e.g., Name, XCenter, etc.)
-     * @returns The requested property value.
      */
     //% block="model Id%num target with Id%Id%property"
     //% weight=110
@@ -639,7 +631,6 @@ namespace huskylens2 {
      * @param Id Target Id (range: 1-100, default: 1)
      * @param index Index of the target (1-based, range: 1-6, default: 1)
      * @param property Property to retrieve (e.g., Name, XCenter, etc.)
-     * @returns The requested property value.
      */
     //% block="model Id %num Id %Id the %index target of %property""
     //% weight=109

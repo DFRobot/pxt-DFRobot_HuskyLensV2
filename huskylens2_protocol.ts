@@ -550,7 +550,6 @@ namespace huskylens2 {
      * @param retry Retry count, default is 3
      * @param pkt Optional packet; if provided, it is sent before each retry
      * @param pauseMs Pause between retries (ms), default is 100
-     * @returns Whether the expected command was received
      */
     function waitForResponse(expectedCommand: number, retry: number = 3, pkt?: Buffer, pauseMs: number = 100): boolean {
         for (let i = 0; i < retry; i++) {
@@ -585,7 +584,6 @@ namespace huskylens2 {
     /**
      * Create and initialize a 10-byte Buffer (first byte set to the specified value, rest are 0)
      * @param firstByte Value of the first byte
-     * @returns Initialized Buffer
      */
     function createInitializedBuffer(firstByte: number): Buffer {
         const buf = Buffer.create(10);
@@ -604,7 +602,6 @@ namespace huskylens2 {
      * @param retry Retry count, default is 3
      * @param pauseMs Pause between retries (ms), default is 100
      * @param expectedRetValue Expected return value, default is 0
-     * @returns Whether successful (response received and return value matches)
      */
     function sendCommandAndCheckResponse(cmd: number, algorithmId: number, data: Buffer, retry: number = 3, pauseMs: number = 100, expectedRetValue: number = 0): boolean {
         const pkt = PacketHead.fromFields({
@@ -626,7 +623,6 @@ namespace huskylens2 {
      * @param data Data buffer
      * @param retry Retry count, default is 3
      * @param pauseMs Pause between retries (ms), default is 100
-     * @returns Whether a response was received
      */
     function sendCommandAndWait(cmd: number, algorithmId: number, data: Buffer, retry: number = 3, pauseMs: number = 100): boolean {
         const pkt = PacketHead.fromFields({
@@ -644,7 +640,6 @@ namespace huskylens2 {
      * @param data Data buffer
      * @param retry Retry count, default is 3
      * @param pauseMs Pause between retries (ms), default is 100
-     * @returns PacketData object; returns null on failure
      */
     function sendCommandAndGetResponse(cmd: number, algorithmId: number, data: Buffer, retry: number = 3, pauseMs: number = 100): PacketData | null {
         const pkt = PacketHead.fromFields({
@@ -666,7 +661,6 @@ namespace huskylens2 {
      * @param cmd Command type (CommandActionLearn or CommandActionLearnBlock)
      * @param algorithmId Algorithm Id
      * @param data Data buffer
-     * @returns Learned Id; returns 0 on failure
      */
     function sendLearnCommand(cmd: number, algorithmId: number, data: Buffer): number {
         const pkt = PacketHead.fromFields({
@@ -687,7 +681,6 @@ namespace huskylens2 {
      * @param y y Coordinate
      * @param w Width
      * @param h Height
-     * @returns Initialized Buffer
      */
     function createBoxBuffer(x: number, y: number, w: number, h: number): Buffer {
         const dataBuf = Buffer.create(10);
@@ -775,7 +768,6 @@ namespace huskylens2 {
     /**
      * Internal function: get the maximum learned Id value from the cache.
      * @param algorithmId The algorithm Id (normalized internally).
-     * @returns The maximum learned Id; returns 0 if no Id has been learned.
      */
     //% blockHidden=true
     export function cachedResultMaxIdInternal(algorithmId: number): number {
@@ -1182,14 +1174,23 @@ namespace huskylens2 {
         drawBoxInternal(Macro.CommandActionDrawRect, color, lineWidth, x, y, w, h);
     }
     export const enum FontSize {
+        //% block="font20"
         Font20 = 20,
+        //% block="font24"
         Font24 = 24,
+        //% block="font26"
         Font26 = 26,
+        //% block="font27"
         Font27 = 27,
+        //% block="font28"
         Font28 = 28,
+        //% block="font32"
         Font32 = 32,
+        //% block="font36"
         Font36 = 36,
+        //% block="font40"
         Font40 = 40,
+        //% block="font48"
         Font48 = 48,
     }
     /**
