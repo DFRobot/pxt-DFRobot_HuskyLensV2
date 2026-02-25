@@ -8,60 +8,7 @@
  * @date  2026-2-2
 */
 
-// Face Orientation Detection Properties
-enum FaceOrientationProperty {
-    //% block="Id"
-    Id = 0,
-    //% block="name"
-    Name,
-    //% block="roll angle"
-    Roll,
-    //% block="yaw angle"
-    Yaw,
-    //% block="pitch angle"
-    Pitch,
 
-}
-// Face Orientation Detection Properties
-enum FaceOrientationPropertyId {
-    //% block="name"
-    Name = 1,
-    //% block="roll angle"
-    Roll,
-    //% block="yaw angle"
-    Yaw,
-    //% block="pitch angle"
-    Pitch,
-}
-// gaze direction detection Properties (Include Id)
-enum EyeGazeProperty {
-    //% block="Id"
-    Id = 0,
-    //% block="name"
-    Name,
-    //% block="projected angle"
-    Angle,
-    //% block="projected length"
-    Length,
-    //% block="pitch angle"
-    Pitch,
-    //% block="yaw angle"
-    Yaw
-}
-
-// gaze direction detection Properties (excluding Id)
-enum EyeGazePropertyId {
-    //% block="name"
-    Name = 1,
-    //% block="projected angle"
-    Angle,
-    //% block="projected length"
-    Length,
-    //% block="pitch angle"
-    Pitch,
-    //% block="yaw angle"
-    Yaw
-}
 
 
 /**
@@ -70,6 +17,61 @@ enum EyeGazePropertyId {
 //% weight=100 color=#0fbc11 icon="\uf083" block="huskylens2"
 //% groups='["communication","algorithm switch"]'
 namespace huskylens2 {
+
+    // Face Orientation Detection Properties
+    export enum  FaceOrientationProperty {
+        //% block="Id"
+        Id = 0,
+        //% block="name"
+        Name,
+        //% block="roll angle"
+        Roll,
+        //% block="yaw angle"
+        Yaw,
+        //% block="pitch angle"
+        Pitch,
+
+    }
+    // Face Orientation Detection Properties
+    export enum  FaceOrientationPropertyId {
+        //% block="name"
+        Name = 1,
+        //% block="roll angle"
+        Roll,
+        //% block="yaw angle"
+        Yaw,
+        //% block="pitch angle"
+        Pitch,
+    }
+    // gaze direction detection Properties (Include Id)
+    export enum  EyeGazeProperty {
+        //% block="Id"
+        Id = 0,
+        //% block="name"
+        Name,
+        //% block="projected angle"
+        Angle,
+        //% block="projected length"
+        Length,
+        //% block="pitch angle"
+        Pitch,
+        //% block="yaw angle"
+        Yaw
+    }
+
+    // gaze direction detection Properties (excluding Id)
+    export enum  EyeGazePropertyId {
+        //% block="name"
+        Name = 1,
+        //% block="projected angle"
+        Angle,
+        //% block="projected length"
+        Length,
+        //% block="pitch angle"
+        Pitch,
+        //% block="yaw angle"
+        Yaw
+    }
 
     // ================================================== fall detection ========================================
     /**
@@ -488,7 +490,7 @@ namespace huskylens2 {
     //% weight=116
     //% subcategory="self training"
     //% num.min=128 num.max=255 num.defl=128
-    //% property.defl=BasePropertyId.Id
+    //% property.defl=huskylens2.BasePropertyId.Id
     export function nearest(num: number, property: BasePropertyId): any {
         const res = cachedCenterResultInternal(num);
         const result = res as Result;
@@ -542,7 +544,7 @@ namespace huskylens2 {
     //% subcategory="self training"
     //% num.min=128 num.max=255 num.defl=128
     //% index.min=1 index.max=6 index.defl=1
-    //% property.defl=BasePropertyId.Id
+    //% property.defl=huskylens2.BasePropertyId.Id
     export function targetProperty(num: number, index: number, property: BasePropertyId): any {
         const res = cachedResultByIndexInternal(num, index - 1);
         const result = res as Result;
@@ -604,7 +606,7 @@ namespace huskylens2 {
     //% subcategory="self training"
     //% num.min=128 num.max=255 num.defl=128
     //% Id.min=1 Id.max=100 Id.defl=1
-    //% property.defl=BaseProperty.Name
+    //% property.defl=huskylens2.BaseProperty.Name
     export function withId(num: number, Id: number, property: BaseProperty): any {
         const res = cachedResultByIdInternal(num, Id);
         const result = res as Result;
@@ -638,7 +640,7 @@ namespace huskylens2 {
     //% num.min=128 num.max=255 num.defl=128
     //% Id.min=1 Id.max=100 Id.defl=1
     //% index.min=1 index.max=6 index.defl=1
-    //% property.defl=BaseProperty.Name
+    //% property.defl=huskylens2.BaseProperty.Name
     export function withIdProperty(num: number, Id: number, index: number, property: BaseProperty): any {
         const res = cachedIndexResultByIdInternal(num, Id, index - 1);
         const result = res as Result;

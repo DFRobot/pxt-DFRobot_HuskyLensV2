@@ -7,17 +7,7 @@
  * @author [email](rong.li@dfrobot.com)
  * @date  2026-2-2
 */
-// line tracking properties
-enum LineTrackingProperty {
-    //% block="x component"
-    XComponent,
-    //% block="y component"
-    YComponent,
-    //% block="angle"
-    Angle,
-    //% block="length"
-    Length,
-}
+
 
 /**
  * HuskyLens 2 
@@ -25,6 +15,17 @@ enum LineTrackingProperty {
 //% weight=100 color=#0fbc11 icon="\uf083" block="huskylens2"
 //% groups='["communication","algorithm switch"]'
 namespace huskylens2 {
+    // line tracking properties
+    export enum LineTrackingProperty {
+        //% block="x component"
+        XComponent,
+        //% block="y component"
+        YComponent,
+        //% block="angle"
+        Angle,
+        //% block="length"
+        Length,
+    }
 
     // ======================================================= license plate recognition ======================================
     function getPlatePropertyValue(result: ResultVariant, property: number): any {

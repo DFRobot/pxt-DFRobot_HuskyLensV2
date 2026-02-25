@@ -9,243 +9,243 @@
 */
 
 
-// ==================== Algorithm selection enum ====================
-enum AlgorithmLearnSetNameOfId {
-    //% blockHidden=true
-    AlgorithmAny = 0,                      // 0
-    //% block="face recognition"
-    AlgorithmFaceRecognition = 1,         // 1
-    //% block="object tracking"
-    AlgorithmObjectTracking = 3,          // 3
-    //% block="color recognition"
-    AlgorithmColorRecognition = 4,        // 4
-    //% block="self learning classification"
-    AlgorithmSelfLearningClassification = 6, // 6
-    //% block="hand recognition"
-    AlgorithmHandRecognition = 8,        // 8
-    //% block="pose recognition"
-    AlgorithmPoseRecognition = 9,        // 9
-    //% block="license plate recognition"
-    AlgorithmLicenseRecognition = 10,      // 10
-    //% block="OCR recognition"
-    AlgorithmOcrRecognition = 11,          // 11
-    //% block="gaze recognition"
-    AlgorithmGazeRecognition = 14,            // 14
-    //% block="face Orientation"
-    AlgorithmFaceOrientation = 15,             // 15
-        //% block="tag recognition"
-    AlgorithmTagRecognition = 16,              // 16
-    //% block="barcode recognition"
-    AlgorithmBarcodeRecognition = 17,        // 17
-    //% block="QR code recognition"
-    AlgorithmQrCodeRecognition = 18,       // 18
-}
-
-    enum AlgorithmLearnObjectAtCenter {
-    //% blockHidden=true
-    AlgorithmAny = 0,                      // 0
-    //% block="face recognition"
-    AlgorithmFaceRecognition = 1,         // 1
-    //% block="object recognition"
-    AlgorithmObjectRecognition = 2,       // 2
-    //% block="color recognition"
-    AlgorithmColorRecognition = 4,        // 4
-    //% block="object classification"
-    AlgorithmObjectClassification = 5,   // 5
-    //% block="self learning classification"
-    AlgorithmSelfLearningClassification = 6, // 6
-    //% block="instance segmentation"
-    AlgorithmSegment = 7,                 // 7
-    //% block="hand recognition"
-    AlgorithmHandRecognition = 8,        // 8
-    //% block="pose recognition"
-    AlgorithmPoseRecognition = 9,        // 9
-    //% block="license plate recognition"
-    AlgorithmLicenseRecognition = 10,      // 10
-    //% block="OCR recognition"
-    AlgorithmOcrRecognition = 11,          // 11
-
-    //% block="gaze recognition"
-    AlgorithmGazeRecognition = 14,            // 14
-    //% block="face Orientation"
-    AlgorithmFaceOrientation = 15,             // 15
-        //% block="tag recognition"
-    AlgorithmTagRecognition = 16,              // 16
-    //% block="barcode recognition"
-    AlgorithmBarcodeRecognition = 17,        // 17
-    //% block="QR code recognition"
-    AlgorithmQrCodeRecognition = 18,       // 18
-}
-
-    enum AlgorithmLearnObjectInBox {
-    //% blockHidden=true
-    AlgorithmAny = 0,                      // 0
-    //% block="face recognition"
-    AlgorithmFaceRecognition = 1,         // 1
-    //% block="object recognition"
-    AlgorithmObjectRecognition = 2,       // 2
-    //% block="object tracking"
-    AlgorithmObjectTracking = 3,          // 3
-    //% block="color recognition"
-    AlgorithmColorRecognition = 4,        // 4
-    //% block="instance segmentation"
-    AlgorithmSegment = 7,                 // 7
-    //% block="hand recognition"
-    AlgorithmHandRecognition = 8,        // 8
-    //% block="pose recognition"
-    AlgorithmPoseRecognition = 9,        // 9
-    //% block="license plate recognition"
-    AlgorithmLicenseRecognition = 10,      // 10
-    //% block="OCR recognition"
-    AlgorithmOcrRecognition = 11,          // 11
-
-
-    //% block="gaze recognition"
-    AlgorithmGazeRecognition = 14,            // 14
-    //% block="face Orientation"
-    AlgorithmFaceOrientation = 15,             // 15
-        //% block="tag recognition"
-    AlgorithmTagRecognition = 16,              // 16
-    //% block="barcode recognition"
-    AlgorithmBarcodeRecognition = 17,        // 17
-    //% block="QR code recognition"
-    AlgorithmQrCodeRecognition = 18,       // 18
-}
-
-    enum Algorithm {
-    //% blockHidden=true
-    AlgorithmAny = 0,                      // 0
-    //% block="face recognition"
-    AlgorithmFaceRecognition = 1,         // 1
-    //% block="object recognition"
-    AlgorithmObjectRecognition = 2,       // 2
-    //% block="object tracking"
-    AlgorithmObjectTracking = 3,          // 3
-    //% block="color recognition"
-    AlgorithmColorRecognition = 4,        // 4
-    //% block="object classification"
-    AlgorithmObjectClassification = 5,   // 5
-    //% block="self learning classification"
-    AlgorithmSelfLearningClassification = 6, // 6
-    //% block="instance segmentation"
-    AlgorithmSegment = 7,                 // 7
-    //% block="hand recognition"
-    AlgorithmHandRecognition = 8,        // 8
-    //% block="pose recognition"
-    AlgorithmPoseRecognition = 9,        // 9
-    //% block="license plate recognition"
-    AlgorithmLicenseRecognition = 10,      // 10
-    //% block="OCR recognition"
-    AlgorithmOcrRecognition = 11,          // 11
-    //% block="line tracking"
-    AlgorithmLineTracking = 12,            // 12
-    //% block="face emotion recognition"
-    AlgorithmEmotionRecognition = 13,     // 13
-
-    //% block="gaze recognition"
-    AlgorithmGazeRecognition = 14,            // 14
-    //% block="face Orientation"
-    AlgorithmFaceOrientation = 15,             // 15
-    //% block="tag recognition"
-    AlgorithmTagRecognition = 16,              // 16
-    //% block="barcode recognition"
-    AlgorithmBarcodeRecognition = 17,        // 17
-    //% block="QR code recognition"
-    AlgorithmQrCodeRecognition = 18,       // 18
-    //% block="fall detection property"
-    AlgorithmFallDownRecognition = 19,        // 19
-
-    //% blockHidden=true
-    AlgorithmCustom0 = 20,                 // 20
-    //% blockHidden=true
-    AlgorithmCustom1 = 21,                 // 21
-    //% blockHidden=true
-    AlgorithmCustom2 = 22,                 // 22
-    //% blockHidden=true
-    AlgorithmBuiltinCount = 23,           // 23
-    //% blockHidden=true
-    AlgorithmCustomBegin = 128,           // 128
-}
-
-enum BaseProperty {
-    //% block="name"
-    Name=1,
-    //% block="x center"
-    XCenter,
-    //% block="y center"
-    YCenter,
-    //% block="width"
-    Width,
-    //% block="height"
-    Height
-}
-enum BasePropertyId {
-    //% block="Id"
-    Id,
-    //% block="name"
-    Name,
-    //% block="x center"
-    XCenter,
-    //% block="y center"
-    YCenter,
-    //% block="width"
-    Width,
-    //% block="height"
-    Height
-}
-
-enum BasePropertyContent {
-    //% block="name"
-    Name=1,
-    //% block="x center"
-    XCenter,
-    //% block="y center"
-    YCenter,
-    //% block="width"
-    Width,
-    //% block="height"
-    Height,
-    //% block="content"
-    Content
-}
-
-enum BasePropertyContentId {
-    //% block="Id"
-    Id,
-    //% block="name"
-    Name,
-    //% block="x center"
-    XCenter,
-    //% block="y center"
-    YCenter,
-    //% block="width"
-    Width,
-    //% block="height"
-    Height,
-    //% block="content"
-    Content
-}
-// object classification properties (only Id and Name)
-enum ObjectClassificationProperty {
-    //% block="Id"
-    Id,
-    //% block="name"
-    Name,
-}
-// self learning classification properties (only Id and Name)
-enum SelfLearningClassificationProperty {
-    //% block="Id"
-    Id,
-    //% block="name"
-    Name,
-}
-
 /**
  * HuskyLens 2 
  */
 //% weight=100 color=#0fbc11 icon="\uf083" block="huskylens2"
 //% groups='["communication","algorithm switch"]'
 namespace huskylens2 {
+    // ==================== Algorithm selection enum ====================
+    export enum AlgorithmLearnSetNameOfId {
+        //% blockHidden=true
+        AlgorithmAny = 0,                      // 0
+        //% block="face recognition"
+        AlgorithmFaceRecognition = 1,         // 1
+        //% block="object tracking"
+        AlgorithmObjectTracking = 3,          // 3
+        //% block="color recognition"
+        AlgorithmColorRecognition = 4,        // 4
+        //% block="self learning classification"
+        AlgorithmSelfLearningClassification = 6, // 6
+        //% block="hand recognition"
+        AlgorithmHandRecognition = 8,        // 8
+        //% block="pose recognition"
+        AlgorithmPoseRecognition = 9,        // 9
+        //% block="license plate recognition"
+        AlgorithmLicenseRecognition = 10,      // 10
+        //% block="OCR recognition"
+        AlgorithmOcrRecognition = 11,          // 11
+        //% block="gaze recognition"
+        AlgorithmGazeRecognition = 14,            // 14
+        //% block="face Orientation"
+        AlgorithmFaceOrientation = 15,             // 15
+            //% block="tag recognition"
+        AlgorithmTagRecognition = 16,              // 16
+        //% block="barcode recognition"
+        AlgorithmBarcodeRecognition = 17,        // 17
+        //% block="QR code recognition"
+        AlgorithmQrCodeRecognition = 18,       // 18
+    }
+
+    export enum  AlgorithmLearnObjectAtCenter {
+        //% blockHidden=true
+        AlgorithmAny = 0,                      // 0
+        //% block="face recognition"
+        AlgorithmFaceRecognition = 1,         // 1
+        //% block="object recognition"
+        AlgorithmObjectRecognition = 2,       // 2
+        //% block="color recognition"
+        AlgorithmColorRecognition = 4,        // 4
+        //% block="object classification"
+        AlgorithmObjectClassification = 5,   // 5
+        //% block="self learning classification"
+        AlgorithmSelfLearningClassification = 6, // 6
+        //% block="instance segmentation"
+        AlgorithmSegment = 7,                 // 7
+        //% block="hand recognition"
+        AlgorithmHandRecognition = 8,        // 8
+        //% block="pose recognition"
+        AlgorithmPoseRecognition = 9,        // 9
+        //% block="license plate recognition"
+        AlgorithmLicenseRecognition = 10,      // 10
+        //% block="OCR recognition"
+        AlgorithmOcrRecognition = 11,          // 11
+
+        //% block="gaze recognition"
+        AlgorithmGazeRecognition = 14,            // 14
+        //% block="face Orientation"
+        AlgorithmFaceOrientation = 15,             // 15
+            //% block="tag recognition"
+        AlgorithmTagRecognition = 16,              // 16
+        //% block="barcode recognition"
+        AlgorithmBarcodeRecognition = 17,        // 17
+        //% block="QR code recognition"
+        AlgorithmQrCodeRecognition = 18,       // 18
+    }
+
+    export enum  AlgorithmLearnObjectInBox {
+        //% blockHidden=true
+        AlgorithmAny = 0,                      // 0
+        //% block="face recognition"
+        AlgorithmFaceRecognition = 1,         // 1
+        //% block="object recognition"
+        AlgorithmObjectRecognition = 2,       // 2
+        //% block="object tracking"
+        AlgorithmObjectTracking = 3,          // 3
+        //% block="color recognition"
+        AlgorithmColorRecognition = 4,        // 4
+        //% block="instance segmentation"
+        AlgorithmSegment = 7,                 // 7
+        //% block="hand recognition"
+        AlgorithmHandRecognition = 8,        // 8
+        //% block="pose recognition"
+        AlgorithmPoseRecognition = 9,        // 9
+        //% block="license plate recognition"
+        AlgorithmLicenseRecognition = 10,      // 10
+        //% block="OCR recognition"
+        AlgorithmOcrRecognition = 11,          // 11
+
+
+        //% block="gaze recognition"
+        AlgorithmGazeRecognition = 14,            // 14
+        //% block="face Orientation"
+        AlgorithmFaceOrientation = 15,             // 15
+            //% block="tag recognition"
+        AlgorithmTagRecognition = 16,              // 16
+        //% block="barcode recognition"
+        AlgorithmBarcodeRecognition = 17,        // 17
+        //% block="QR code recognition"
+        AlgorithmQrCodeRecognition = 18,       // 18
+    }
+
+    export enum  Algorithm {
+        //% blockHidden=true
+        AlgorithmAny = 0,                      // 0
+        //% block="face recognition"
+        AlgorithmFaceRecognition = 1,         // 1
+        //% block="object recognition"
+        AlgorithmObjectRecognition = 2,       // 2
+        //% block="object tracking"
+        AlgorithmObjectTracking = 3,          // 3
+        //% block="color recognition"
+        AlgorithmColorRecognition = 4,        // 4
+        //% block="object classification"
+        AlgorithmObjectClassification = 5,   // 5
+        //% block="self learning classification"
+        AlgorithmSelfLearningClassification = 6, // 6
+        //% block="instance segmentation"
+        AlgorithmSegment = 7,                 // 7
+        //% block="hand recognition"
+        AlgorithmHandRecognition = 8,        // 8
+        //% block="pose recognition"
+        AlgorithmPoseRecognition = 9,        // 9
+        //% block="license plate recognition"
+        AlgorithmLicenseRecognition = 10,      // 10
+        //% block="OCR recognition"
+        AlgorithmOcrRecognition = 11,          // 11
+        //% block="line tracking"
+        AlgorithmLineTracking = 12,            // 12
+        //% block="face emotion recognition"
+        AlgorithmEmotionRecognition = 13,     // 13
+
+        //% block="gaze recognition"
+        AlgorithmGazeRecognition = 14,            // 14
+        //% block="face Orientation"
+        AlgorithmFaceOrientation = 15,             // 15
+        //% block="tag recognition"
+        AlgorithmTagRecognition = 16,              // 16
+        //% block="barcode recognition"
+        AlgorithmBarcodeRecognition = 17,        // 17
+        //% block="QR code recognition"
+        AlgorithmQrCodeRecognition = 18,       // 18
+        //% block="fall detection property"
+        AlgorithmFallDownRecognition = 19,        // 19
+
+        //% blockHidden=true
+        AlgorithmCustom0 = 20,                 // 20
+        //% blockHidden=true
+        AlgorithmCustom1 = 21,                 // 21
+        //% blockHidden=true
+        AlgorithmCustom2 = 22,                 // 22
+        //% blockHidden=true
+        AlgorithmBuiltinCount = 23,           // 23
+        //% blockHidden=true
+        AlgorithmCustomBegin = 128,           // 128
+    }
+
+    export enum  BaseProperty {
+        //% block="name"
+        Name=1,
+        //% block="x center"
+        XCenter,
+        //% block="y center"
+        YCenter,
+        //% block="width"
+        Width,
+        //% block="height"
+        Height
+    }
+    export enum  BasePropertyId {
+        //% block="Id"
+        Id,
+        //% block="name"
+        Name,
+        //% block="x center"
+        XCenter,
+        //% block="y center"
+        YCenter,
+        //% block="width"
+        Width,
+        //% block="height"
+        Height
+    }
+
+    export enum  BasePropertyContent {
+        //% block="name"
+        Name=1,
+        //% block="x center"
+        XCenter,
+        //% block="y center"
+        YCenter,
+        //% block="width"
+        Width,
+        //% block="height"
+        Height,
+        //% block="content"
+        Content
+    }
+
+    export enum  BasePropertyContentId {
+        //% block="Id"
+        Id,
+        //% block="name"
+        Name,
+        //% block="x center"
+        XCenter,
+        //% block="y center"
+        YCenter,
+        //% block="width"
+        Width,
+        //% block="height"
+        Height,
+        //% block="content"
+        Content
+    }
+    // object classification properties (only Id and Name)
+    export enum  ObjectClassificationProperty {
+        //% block="Id"
+        Id,
+        //% block="name"
+        Name,
+    }
+    // self learning classification properties (only Id and Name)
+    export enum  SelfLearningClassificationProperty {
+        //% block="Id"
+        Id,
+        //% block="name"
+        Name,
+    }
+    
     // ================= Block =================
     /**
      * Initialize I2C and keep trying until the sensor responds.
@@ -1160,5 +1160,6 @@ namespace huskylens2 {
     export function posePropertyByIdNth(Id: number, index: number, property: BaseProperty): any {
         const r = cachedIndexResultByIdInternal(Algorithm.AlgorithmPoseRecognition, Id, index - 1);
         return getPosePropertyValue(r, property);
-    }}
+    }
+}
 

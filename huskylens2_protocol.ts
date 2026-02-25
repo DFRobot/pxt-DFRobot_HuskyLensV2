@@ -1305,7 +1305,7 @@ namespace huskylens2 {
     //% block="built-in model %algorithmId learn target at center of screen"
     //% weight=95
     //% subcategory="learning /forgetting"
-    //% algorithmId.defl=AlgorithmLearnObjectAtCenter.AlgorithmFaceRecognition
+    //% algorithmId.defl=huskylens2.AlgorithmLearnObjectAtCenter.AlgorithmFaceRecognition
     export function learnObjectAtCenter(algorithmId: AlgorithmLearnObjectAtCenter): void {
         learn_id = sendLearnCommand(Macro.CommandActionLearn, algorithmId, createInitializedBuffer(0));
     }
@@ -1333,7 +1333,7 @@ namespace huskylens2 {
     //% block="built-in model %algorithmId learn target in specified box x%x y%y w%w h%h"
     //% weight=90
     //% subcategory="learning /forgetting"
-    //% algorithmId.defl=AlgorithmLearnObjectInBox.AlgorithmFaceRecognition
+    //% algorithmId.defl=huskylens2.AlgorithmLearnObjectInBox.AlgorithmFaceRecognition
     //% x.min=0 x.max=640
     //% y.min=0 y.max=480
     //% w.min=10 w.max=100
@@ -1371,7 +1371,7 @@ namespace huskylens2 {
     //% block="set built-in model %algorithmId Id%Id name to %name"
     //% weight=70
     //% subcategory="learning /forgetting"
-    //% algorithmId.defl=AlgorithmLearnSetNameOfId.AlgorithmFaceRecognition
+    //% algorithmId.defl=huskylens2.AlgorithmLearnSetNameOfId.AlgorithmFaceRecognition
     //% Id.min=1 Id.max=100 Id.defl=1
     //% name.defl="object"
     export function setNameOfId(algorithmId: AlgorithmLearnSetNameOfId, Id: number, name: string): void {
@@ -1401,7 +1401,7 @@ namespace huskylens2 {
     //% block="forget built-in model %algorithmId all Ids"
     //% weight=80
     //% subcategory="learning /forgetting"
-    //% algorithmId.defl=Algorithm.AlgorithmFaceRecognition
+    //% algorithmId.defl=huskylens2.Algorithm.AlgorithmFaceRecognition
     export function forgetAllIds(algorithmId: Algorithm): void {
         sendCommandAndWait(Macro.CommandActionForget, algorithmId, createInitializedBuffer(algorithmId));
     }
