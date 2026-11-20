@@ -339,39 +339,16 @@ namespace huskylens2 {
         return hex;
     }
 
-    // Helper function: Decode UTF-8 bytes to string (simplified: ASCII + 3-byte UTF-8 for Chinese)
+    /**
+     * Decode a UTF-8 byte range to string via Buffer.toString()
+     * (replaces the old hand-rolled decoder that dropped Chinese text).
+     */
     function decodeUTF8(buf: Buffer, start: number, length: number): string {
-        let result = "";
-        let i = start;
+        if (length <= 0 || start < 0 || start >= buf.length) return "";
         let end = start + length;
-
-        while (i < end && i < buf.length) {
-            let byte1 = buf[i];
-
-            // ASCII character (0x00-0x7F)
-            if (byte1 < 0x80) {
-                if (byte1 === 0) break; // Stop at null terminator
-                result += String.fromCharCode(byte1);
-                i++;
-            }
-            // 3-byte UTF-8 character (0xE0-0xEF) - Chinese characters typically use this
-            else if ((byte1 & 0xF0) === 0xE0 && i + 2 < end && i + 2 < buf.length) {
-                let byte2 = buf[i + 1];
-                let byte3 = buf[i + 2];
-                if ((byte2 & 0xC0) === 0x80 && (byte3 & 0xC0) === 0x80) {
-                    let codePoint = ((byte1 & 0x0F) << 12) | ((byte2 & 0x3F) << 6) | (byte3 & 0x3F);
-                    result += String.fromCharCode(codePoint);
-                    i += 3;
-                } else {
-                    i++; // Skip invalid byte
-                }
-            }
-            else {
-                i++; // Skip invalid or unsupported byte
-            }
-        }
-
-        return result;
+        if (end > buf.length) end = buf.length;
+        if (end <= start) return "";
+        return buf.slice(start, end).toString();
     }
 
     // Helper function: Extract string from Buffer, using \0 as terminator, supports UTF-8 encoding (including Chinese)
@@ -384,9 +361,7 @@ namespace huskylens2 {
                 break;
             }
         }
-        // Only extract the valid part (before the first \0), preserving spaces that may be included in the name
         if (validLength > 0) {
-            // Use UTF-8 decoder to properly handle multi-byte characters
             return decodeUTF8(buf, 0, validLength);
         }
         return "";
@@ -394,17 +369,18 @@ namespace huskylens2 {
 
     // Helper function: Extract string from Buffer at specific offset and length, using \0 as terminator
     function bufferToStringAtOffset(buf: Buffer, offset: number, maxLength: number): string {
-        // Find the position of the first null character (\0), which is the string terminator
+        if (maxLength <= 0 || offset < 0 || offset >= buf.length) return "";
         let validLength = maxLength;
-        for (let i = 0; i < maxLength && (offset + i) < buf.length; i++) {
+        if (offset + validLength > buf.length) {
+            validLength = buf.length - offset;
+        }
+        for (let i = 0; i < validLength; i++) {
             if (buf[offset + i] === 0) {
                 validLength = i;
                 break;
             }
         }
-        // Only extract the valid part (before the first \0)
         if (validLength > 0) {
-            // Use UTF-8 decoder to properly handle multi-byte characters
             return decodeUTF8(buf, offset, validLength);
         }
         return "";
