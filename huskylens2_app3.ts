@@ -23,54 +23,62 @@ namespace huskylens2 {
         //% block="Id"
         Id = 0,
         //% block="name"
-        Name,
+        Name = 1,
+        //% block="confidence"
+        Confidence = 5,
         //% block="roll angle"
-        Roll,
+        Roll = 2,
         //% block="yaw angle"
-        Yaw,
+        Yaw = 3,
         //% block="pitch angle"
-        Pitch,
+        Pitch = 4,
 
     }
     // Face Orientation Detection Properties
     export enum  FaceOrientationPropertyId {
         //% block="name"
         Name = 1,
+        //% block="confidence"
+        Confidence = 5,
         //% block="roll angle"
-        Roll,
+        Roll = 2,
         //% block="yaw angle"
-        Yaw,
+        Yaw = 3,
         //% block="pitch angle"
-        Pitch,
+        Pitch = 4,
     }
     // gaze direction detection Properties (Include Id)
     export enum  EyeGazeProperty {
         //% block="Id"
         Id = 0,
         //% block="name"
-        Name,
+        Name = 1,
+        //% block="confidence"
+        Confidence = 6,
         //% block="projected angle"
-        Angle,
+        Angle = 2,
         //% block="projected length"
-        Length,
+        Length = 3,
         //% block="pitch angle"
-        Pitch,
+        Pitch = 4,
         //% block="yaw angle"
-        Yaw
+        Yaw = 5
     }
 
     // gaze direction detection Properties (excluding Id)
     export enum  EyeGazePropertyId {
         //% block="name"
         Name = 1,
+        //% block="confidence"
+        Confidence = 6,
         //% block="projected angle"
-        Angle,
+        Angle = 2,
         //% block="projected length"
-        Length,
+        Length = 3,
         //% block="pitch angle"
-        Pitch,
+        Pitch = 4,
         //% block="yaw angle"
-        Yaw
+        Yaw = 5
     }
 
     // ================================================== fall detection ========================================
@@ -85,6 +93,7 @@ namespace huskylens2 {
         switch (property) {
             case BasePropertyId.Id: return res.Id;
             case BasePropertyId.Name: return res.name.length > 0 ? res.name : "";
+            case BasePropertyId.Confidence: return res.conf;
             case BasePropertyId.XCenter: return res.xCenter;
             case BasePropertyId.YCenter: return res.yCenter;
             case BasePropertyId.Width: return res.width;
@@ -168,6 +177,7 @@ namespace huskylens2 {
         switch (property) {
             case FaceOrientationProperty.Id: return res.Id || 0;
             case FaceOrientationProperty.Name: return res.name || "";
+            case FaceOrientationProperty.Confidence: return res.conf;
             case FaceOrientationProperty.Yaw: return res.yaw || 0;
             case FaceOrientationProperty.Pitch: return res.pitch || 0;
             case FaceOrientationProperty.Roll: return res.roll || 0;
@@ -310,6 +320,7 @@ namespace huskylens2 {
         switch (property) {
             case EyeGazeProperty.Id: return res.Id;
             case EyeGazeProperty.Name: return res.name || "";
+            case EyeGazeProperty.Confidence: return res.conf;
             case EyeGazeProperty.Angle: return res.angle;        // Projected angle
             case EyeGazeProperty.Length: return res.length;      // Projected length
             case EyeGazeProperty.Pitch: return res.pitch;        // Pitch angle
@@ -499,6 +510,7 @@ namespace huskylens2 {
         switch (property) {
             case BasePropertyId.Id: return result.Id || 0;
             case BasePropertyId.Name:return result.name|| "";
+            case BasePropertyId.Confidence: return result.conf;
             case BasePropertyId.XCenter:return result.xCenter|| 0;
             case BasePropertyId.YCenter:return result.yCenter|| 0;
             case BasePropertyId.Width:return result.width|| 0;
@@ -558,6 +570,7 @@ namespace huskylens2 {
         switch (property) {
             case BasePropertyId.Id: return result.Id || 0;
             case BasePropertyId.Name:return result.name || "";
+            case BasePropertyId.Confidence: return result.conf;
             case BasePropertyId.XCenter:return result.xCenter|| 0;
             case BasePropertyId.YCenter:return result.yCenter|| 0;
             case BasePropertyId.Width:return result.width|| 0;
@@ -619,6 +632,7 @@ namespace huskylens2 {
         
         switch (property) {
             case BaseProperty.Name: return result.name|| "";
+            case BaseProperty.Confidence: return result.conf;
             case BaseProperty.XCenter:return result.xCenter|| 0;
             case BaseProperty.YCenter:return result.yCenter|| 0;
             case BaseProperty.Width:return result.width|| 0;
@@ -649,6 +663,7 @@ namespace huskylens2 {
         
         switch (property) {
             case BaseProperty.Name: return result.name|| "";
+            case BaseProperty.Confidence: return result.conf;
             case BaseProperty.XCenter:return result.xCenter;
             case BaseProperty.YCenter:return result.yCenter;
             case BaseProperty.Width:return result.width;

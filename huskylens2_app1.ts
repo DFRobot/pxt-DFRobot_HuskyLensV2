@@ -175,29 +175,61 @@ namespace huskylens2 {
 
     export enum  BaseProperty {
         //% block="name"
-        Name=1,
+        Name = 1,
+        //% block="confidence"
+        Confidence = 6,
         //% block="x center"
-        XCenter,
+        XCenter = 2,
         //% block="y center"
-        YCenter,
+        YCenter = 3,
         //% block="width"
-        Width,
+        Width = 4,
         //% block="height"
-        Height
+        Height = 5
     }
     export enum  BasePropertyId {
         //% block="Id"
-        Id,
+        Id = 0,
         //% block="name"
-        Name,
+        Name = 1,
+        //% block="confidence"
+        Confidence = 6,
         //% block="x center"
-        XCenter,
+        XCenter = 2,
         //% block="y center"
-        YCenter,
+        YCenter = 3,
         //% block="width"
-        Width,
+        Width = 4,
         //% block="height"
-        Height
+        Height = 5
+    }
+
+    // Color recognition: no confidence option (shares numeric values with BaseProperty*)
+    export enum  ColorProperty {
+        //% block="name"
+        Name = 1,
+        //% block="x center"
+        XCenter = 2,
+        //% block="y center"
+        YCenter = 3,
+        //% block="width"
+        Width = 4,
+        //% block="height"
+        Height = 5
+    }
+    export enum  ColorPropertyId {
+        //% block="Id"
+        Id = 0,
+        //% block="name"
+        Name = 1,
+        //% block="x center"
+        XCenter = 2,
+        //% block="y center"
+        YCenter = 3,
+        //% block="width"
+        Width = 4,
+        //% block="height"
+        Height = 5
     }
 
     export enum  BasePropertyContent {
@@ -231,12 +263,14 @@ namespace huskylens2 {
         //% block="content"
         Content
     }
-    // object classification properties (only Id and Name)
+    // object classification properties (Id, Name, Confidence)
     export enum  ObjectClassificationProperty {
         //% block="Id"
-        Id,
+        Id = 0,
         //% block="name"
-        Name,
+        Name = 1,
+        //% block="confidence"
+        Confidence = 2,
     }
     // self learning classification properties (only Id and Name)
     export enum  SelfLearningClassificationProperty {
@@ -437,6 +471,7 @@ namespace huskylens2 {
         switch (property) {
             case BasePropertyId.Id: return res.Id;
             case BasePropertyId.Name: return res.name.length > 0 ? res.name : "";
+            case BasePropertyId.Confidence: return res.conf;
             case BasePropertyId.XCenter: return res.xCenter;
             case BasePropertyId.YCenter: return res.yCenter;
             case BasePropertyId.Width: return res.width;
@@ -592,6 +627,7 @@ namespace huskylens2 {
 
     // ================= color recognition =================
     function getColorPropertyValue(result: ResultVariant, property: number): number {
+        // ColorProperty* numeric values match BaseProperty* (without Confidence)
         return getBasePropertyValueInternal(result, property as any);
     }
 
@@ -618,7 +654,7 @@ namespace huskylens2 {
     //% block="color block nearest to center %property"
     //% weight=173
     //% subcategory="color recognition"
-    export function cachedCenterColorResult(property: BasePropertyId): number {
+    export function cachedCenterColorResult(property: ColorPropertyId): number {
         const r = cachedCenterResultInternal(Algorithm.AlgorithmColorRecognition);
         return getColorPropertyValue(r, property);
     }
@@ -640,7 +676,7 @@ namespace huskylens2 {
     //% weight=171
     //% index.min=1 index.defl=1
     //% subcategory="color recognition"
-    export function cachedResultColorProperty(index: number, property: BasePropertyId): number {
+    export function cachedResultColorProperty(index: number, property: ColorPropertyId): number {
         const r = cachedResultByIndexInternal(Algorithm.AlgorithmColorRecognition, index - 1);
         return getColorPropertyValue(r, property);
     }
@@ -687,7 +723,7 @@ namespace huskylens2 {
     //% weight=167
     //% index.min=1 index.defl=1
     //% subcategory="color recognition"
-    export function colorPropertyById(index: number, property: BaseProperty): number {
+    export function colorPropertyById(index: number, property: ColorProperty): number {
         const r = cachedResultByIdInternal(Algorithm.AlgorithmColorRecognition, index);
         return getColorPropertyValue(r, property);
     }
@@ -703,7 +739,7 @@ namespace huskylens2 {
     //% Id.min=1 Id.defl=1
     //% n.min=1 n.defl=1
     //% subcategory="color recognition"
-    export function colorPropertyByIdNth(Id: number, index: number, property: BaseProperty): number {
+    export function colorPropertyByIdNth(Id: number, index: number, property: ColorProperty): number {
         const r = cachedIndexResultByIdInternal(Algorithm.AlgorithmColorRecognition, Id, index - 1);
         return getColorPropertyValue(r, property);
     }
@@ -718,6 +754,7 @@ namespace huskylens2 {
         switch (property) {
             case ObjectClassificationProperty.Id: return res.classId;
             case ObjectClassificationProperty.Name: return res.name.length > 0 ? res.name : "";
+            case ObjectClassificationProperty.Confidence: return res.conf;
             default: return 0;
         }
     }
