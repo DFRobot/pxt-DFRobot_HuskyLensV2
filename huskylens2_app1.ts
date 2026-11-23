@@ -466,7 +466,11 @@ namespace huskylens2 {
      */
     //% blockHidden=true
     export function getBasePropertyValueInternal(result: ResultVariant, property: number): any {
-        if (!result) return 0;
+        // Name must return "" (not 0) when missing — otherwise serial shows N[0]
+        if (!result) {
+            if (property === BasePropertyId.Name || property === BaseProperty.Name) return "";
+            return 0;
+        }
         const res = result as Result;
         switch (property) {
             case BasePropertyId.Id: return res.Id;

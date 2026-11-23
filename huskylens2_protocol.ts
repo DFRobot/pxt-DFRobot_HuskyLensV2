@@ -310,7 +310,9 @@ namespace huskylens2 {
 
         get conf() {
             if (this.buffer.length < 14) return 0;
-            return this.buffer.getNumber(NumberFormat.Float32LE, 10);
+            // Keep two decimal places for block/serial output (e.g. 0.95)
+            const v = this.buffer.getNumber(NumberFormat.Float32LE, 10);
+            return Math.round(v * 100) / 100;
         }
         set conf(v: number) {
             if (this.buffer.length < 14) return;
@@ -340,15 +342,39 @@ namespace huskylens2 {
     }
 
     /**
-     * Decode a UTF-8 byte range to string via Buffer.toString()
-     * (replaces the old hand-rolled decoder that dropped Chinese text).
+     * Decode a UTF-8 byte range to string.
+     *
+     * Do NOT use sourceBuffer.slice().toString() directly: on micro:bit MakeCode,
+     * slice() often returns an unreliable view and names come out empty.
+     * Do NOT rely only on String.fromCharCode UTF-8 assembly either: Chinese
+     * often fails to display on serial even when code points look correct.
+     *
+     * Working approach: copy bytes into a freshly allocated Buffer, then toString().
+     * - Fresh buffer avoids the slice-view bug (English/ASCII OK)
+     * - toString() uses the runtime UTF-8 decoder (Chinese OK)
      */
     function decodeUTF8(buf: Buffer, start: number, length: number): string {
         if (length <= 0 || start < 0 || start >= buf.length) return "";
         let end = start + length;
         if (end > buf.length) end = buf.length;
-        if (end <= start) return "";
-        return buf.slice(start, end).toString();
+        const n = end - start;
+        if (n <= 0) return "";
+
+        // Stop at embedded NUL inside the requested range
+        let valid = n;
+        for (let i = 0; i < n; i++) {
+            if ((buf[start + i] & 0xff) === 0) {
+                valid = i;
+                break;
+            }
+        }
+        if (valid <= 0) return "";
+
+        const tmp = Buffer.create(valid);
+        for (let i = 0; i < valid; i++) {
+            tmp[i] = buf[start + i];
+        }
+        return tmp.toString();
     }
 
     // Helper function: Extract string from Buffer, using \0 as terminator, supports UTF-8 encoding (including Chinese)
